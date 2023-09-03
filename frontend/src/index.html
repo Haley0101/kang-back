@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Large_Interface</title>
+
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+    <div id="wrap">
+        <header>
+            <div id="logo"><img src="images/logo.png" alt="encell-pharm"></div>
+            <div><img src="images/logo2.png" alt="onparticle"></div>
+        </header>
+        <main>
+            <section id="ready"><span class="ready_light"></span>
+                <h2>Ready</h2>
+            </section>
+            <section id="main_set">
+
+                <!-- 아래 [input] 태그는 슬라이드 확인용 체크 버튼-->
+                <input type="checkbox" id="check_box" onclick="is_check()" class="next_page_but" unchecked>
+                <label for="check_box"></label>
+
+                <div id="scene1_set">
+                    <div id="left">
+                        <h2>Left_Side</h2>
+                        <div id="left_side" class="box_Set lock">
+                            <div class="module">
+                                <h3>Module</h3>
+                                <!-- <div class="State"> -->
+                                <div class="toggle-switch">
+                                    <input type="checkbox" id="moduleon">
+                                    <label for="moduleon">
+                                        <span class="toggle-track" data-text="CLOSE" onclick="moduleon()"></span>
+                                    </label>
+                                </div>
+                                <!-- </div> -->
+                            </div>
+                            <div class="sensor">
+                                <h3>Sensor</h3>
+                                <!-- <div class="State" > -->
+                                <div class="toggle-switch">
+                                    <input type="checkbox" id="sensoron">
+                                    <label for="sensoron">
+                                        <span class="toggle-track" data-text="CLOSE" onclick="sensoron()"></span>
+                                    </label>
+                                </div>
+                                <!-- </div> -->
+                            </div>
+                            <div class="valve">
+                                <h3>Valve</h3>
+                                <!-- <div class="State"> -->
+                                <div class="toggle-switch">
+                                    <input type="checkbox" id="valveon">
+                                    <label for="valveon">
+                                        <span class="toggle-track" data-text="CLOSE" onclick="valveon()"></span>
+                                    </label>
+                                </div>
+                                <!-- </div> -->
+                            </div>
+                        </div>
+                        <div class="lock_screen" id="left_lock" onclick="leftsideclick()"></div>
+                    </div>
+                    <div id="right">
+                        <h2>Right_Side</h2>
+                        <div id="right_side" class="box_Set lock">
+                            <div id="tank1" class="tank1">
+                                <!--각 탱크에 lack이 걸릴 시 class에 gray를 추가 해주세요, gray 추가시 회색 색상 변경과 터치 비활성 -->
+                                <h3>Tank1<span>1000ml</span></h3>
+                                <div id="R_tank1" class="red">
+                                    <div class="toggle-switch">
+                                        <input type="checkbox" id="righttank1">
+                                        <label for="righttank1">
+                                            <span id="rtank1lock" class="toggle-track" data-text="CLOSE"
+                                                onclick="tank1()"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="tank2" class="tank2">
+                                <h3>Tank2<span>1000ml</span></h3>
+                                <div id="R_tank2" class="red">
+                                    <div class="toggle-switch">
+                                        <input type="checkbox" id="righttank2">
+                                        <label for="righttank2">
+                                            <span id="rtank2lock" class="toggle-track" data-text="CLOSE"
+                                                onclick="tank2()"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="tank3" class="tank3">
+                                <h3>Tank3<span>1000ml</span></h3>
+                                <div id="R_tank3" class="red">
+                                    <div class="toggle-switch">
+                                        <input type="checkbox" id="righttank3">
+                                        <label for="righttank3">
+                                            <span id="rtank3lock" class="toggle-track" data-text="CLOSE"
+                                                onclick="tank3()"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="lock_screen" id="right_lock" onclick="rightsideclick()"></div>
+                    </div>
+                </div>
+
+                <!--슬라이드시 나타나는 두번째 페이지-->
+
+                <div id="scene2_set">
+                    <div id="Setting">
+
+                        <h2>Setting</h2>
+
+                        <div id="setting_side" class="box_Set">
+                            <div class="">
+                                <h3>Tank1<span id="S_Tank1" onclick="tank(8)">1000ml</span></h3>
+                                <p onclick="tank(1)"><span id="S_Tank4"></span></p>
+                                <p onclick="tank(5)"><span id="S_Tank7">120</span></p>
+                            </div>
+                            <div class="">
+                                <h3>Tank2<span id="S_Tank2" onclick="tank(9)">1000ml</span></h3>
+                                <p onclick="tank(2)"><span id="S_Tank5"></span></p>
+                                <p onclick="tank(6)"><span id="S_Tank8">120</span></p>
+                            </div>
+                            <div class="">
+                                <h3>Tank3<span id="S_Tank3" onclick="tank(10)">1000ml</span></h3>
+                                <p onclick="tank(3)"><span id="S_Tank6"></span></p>
+                                <p onclick="tank(7)"><span id="S_Tank9">120</span></p>
+                            </div>
+                            <div class="" onclick="tank(4)" s>
+                                <h3>Time</h3>
+                                <div class="time" id="S_time"><span>30</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="Sensing">
+                        <h2>Sensing</h2>
+                        <div id="Sensing_side" class="box_Set">
+                            <div class="">
+                                <h3>Tank1<span>1000ml</span></h3>
+                                <p><span>150</span></p>
+                                <p><span id="sensingtank1">120</span></p>
+                            </div>
+                            <div class="">
+                                <h3>Tank2<span>1000ml</span></h3>
+                                <p><span>150</span></p>
+                                <p><span id="sensingtank2">120</span></p>
+                            </div>
+                            <div class="">
+                                <h3>Tank3<span>1000ml</span></h3>
+                                <p><span>150</span></p>
+                                <p><span id="sensingtank3">120</span></p>
+                            </div>
+                            <div class="">
+                                <h3>Time</h3>
+                                <div class="time"><span id="sensingtime">30</span></div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div id="control">
+                        <h2>Control</h2>
+                        <div id="control_side" class="box_Set">
+                            <div class="Valve">
+                                <!-- lock 해제 시 class의 gray 삭제-->
+                                <h3>Valve</h3>
+                                <!-- <div class="State"> -->
+                                <div class="toggle-switch">
+                                    <input type="checkbox" id="nextvalve">
+                                    <label for="nextvalve">
+                                        <span class="toggle-track" data-text="CLOSE" onclick="nextvalve(1)"></span>
+                                    </label>
+                                </div>
+                                <!-- </div> -->
+                            </div>
+                            <!-- <div class="pressure gray"></div> -->
+                            <div class="pressure">
+                                <h3>Pressure</h3>
+                                <!-- <div class="State"> -->
+                                <div class="toggle-switch">
+                                    <input type="checkbox" id="nextvpre">
+                                    <label for="nextvpre">
+                                        <span class="toggle-track" onclick="nextvpre()"></span>
+                                    </label>
+                                </div>
+                                <!-- </div> -->
+                            </div>
+                        </div>
+                        <div class="keypad" id="key_pad" >
+
+                           
+                            <div class="keybu" onclick="keyonclick(1)">1</div>
+                            <div class="keybu" onclick="keyonclick(2)">2</div>
+                            <div class="keybu" onclick="keyonclick(3)">3</div>
+                            <div class="keybu" onclick="keyonclick(4)">4</div>
+                            <div class="keybu" onclick="keyonclick(5)">5</div>
+                            <div class="keybu" onclick="keyonclick(11)">←</div>
+
+                            <div class="keybu" onclick="keyonclick(6)">6</div>
+                            <div class="keybu" onclick="keyonclick(7)">7</div>
+                            <div class="keybu" onclick="keyonclick(8)">8</div>
+                            <div class="keybu" onclick="keyonclick(9)">9</div>
+                            <div class="keybu" onclick="keyonclick(0)">0</div>
+                            <div class="keybu" onclick="keyonclick(10)">Enter</div>
+                            <input id="keytext" type="text" style="width: 100%;">
+                        </div>
+
+
+                    </div>
+
+                </div>
+            </section>
+
+            <section id="bottom">
+                <div id="progress">
+                    <ul class="progressbar">
+                        <li id="pro_li_1" class="active ing"></li>
+                        <!--[active]는 준비 완료, [ing]는 준비 중-->
+                        <li id="pro_li_2"></li>
+                        <li id="pro_li_3"></li>
+                    </ul>
+                </div>
+                <div id="user">
+                    <a href="user.html"><span class="nickname">mr.Sunghoon Kim</span></a>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="../uibuilder/vendor/socket.io/socket.io.js">
+    </script>
+    <script src="./uibuilderfe.js">
+    </script>
+    <script src="./js/index.js">
+    </script>
+</body>
+
+</html>

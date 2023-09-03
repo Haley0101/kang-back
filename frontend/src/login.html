@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Large_Interface</title>
+
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+
+</head>
+<body>
+    <div id="wrap">
+        <header>
+            <div id="logo"><img src="images/logo.png" alt="encell-pharm"></div>
+            <div><img src="images/logo2.png" alt="onparticle"></div>
+        </header>
+        <main class="p_top115">
+            <form action="" method="">
+                <section id="login_set">
+                    <div id="enter_password">
+                        <img id = "loimg"src="images/img_Profile_1.png">
+                        <h1 id="chname">Admin</h1>
+                        <input name="password" id = "pwd" type="password" placeholder="Password" autofocus required>
+                        <input type="submit" value="Login" onclick = "check()"class="but_st gray" >
+                    </div>
+                    <div id="select_id">
+                        <ul id="id_list" style="overflow: auto;">
+                            <!-- <li><input type="radio" name="id" value="admin1" checked onclick="fnSendToNR('admin',this.value)">admin</li> -->
+                            <!-- <li><label><input type="radio" name="id" value="admin2" onclick="fnSendToNR('admin',this.value)">Admin</label></li>
+                            <li><label><input type="radio" name="id" value="admin3" onclick="fnSendToNR('admin',this.value)">Admin</label></li>
+                            <li><label><input type="radio" name="id" value="admin4" onclick="fnSendToNR('admin',this.value)">Admin</label></li>
+                            <li><label><input type="radio" name="id" value="admin5" onclick="fnSendToNR('admin',this.value)">Admin</label></li>
+                            <li><label><input type="radio" name="id" value="admin6" onclick="fnSendToNR('admin',this.value)">Admin</label></li> -->
+                        </ul>
+                        <a href="addProfile.html" class="but_st">Add Profile</a>
+                    </div>
+                </section>
+            </form>
+        </main>
+    </div>
+    <script src="../uibuilder/vendor/socket.io/socket.io.js">
+    </script>
+    <script src="./uibuilderfe.js">
+    </script>
+    <script src="./js/login.js">
+    </script>
+</body>
+</html>

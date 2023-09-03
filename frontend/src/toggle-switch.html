@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <style>
+        #container{
+            display: flex;
+            width: 100%;
+            /*   height: 98vh; */
+            justify-content:center;
+            align-items:center;
+        }
+
+
+        /* 토글 스타일 */
+        .toggle-switch input[type=checkbox]{
+        display: none;
+        }
+
+        .toggle-track{
+        display: inline-block;
+        position: relative;
+        width: 100px;
+        height: 30px;
+        border-radius:60px;
+        background: #8b8b8b;
+        }
+        .toggle-track:before{
+        content:'';
+        display: block;
+        position: absolute;
+        top: -7px;
+        left: -12px;
+        width: 30px;
+        height: 30px; 
+        margin: 5px;
+        background: #fff;
+        border-radius:100%;
+        border:1px solid #8b8b8b;
+        transition:left 0.3s;
+        }
+        .toggle-switch input[type=checkbox] + label .toggle-track:after{
+        content:'OFF';
+        display: inline-block;
+        position: absolute;
+        right: 20px;
+        color: #fff;
+        }
+
+        .toggle-switch input[type=checkbox]:checked + label .toggle-track{
+        background: #066CBF;
+        }
+        .toggle-switch input[type=checkbox]:checked + label .toggle-track:before{
+        left: 75px;
+        border:1px solid #066CBF;
+        }
+        .toggle-switch input[type=checkbox]:checked + label .toggle-track:after{
+        content:'ON';
+        left: 5px;
+        }
+    </style>
+
+</head>
+<body>
+    <div id="container" >
+        <!-- 토글 스위치 -->
+        <div class="toggle-switch" >
+            <input type="checkbox" id="name1">
+            <label for="name1">
+                <span class="toggle-track" id = 'test'
+                 onclick="test231()"></span>
+            </label>
+        </div>
+
+
+
+
+    <script src="../uibuilder/vendor/socket.io/socket.io.js">
+    </script>
+    <script src="./uibuilderfe.js">
+    </script>
+    <script src="./js/index.js">
+    </script>
+</body>
+</html>

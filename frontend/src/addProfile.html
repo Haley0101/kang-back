@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Large_Interface</title>
+
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+
+</head>
+<body>
+    <div id="wrap">
+        <header>
+            <div id="logo"><img src="images/logo.png" alt="encell-pharm"></div>
+            <div><img src="images/logo2.png" alt="onparticle"></div>
+        </header>
+        <main class="p_top115">
+            <form>
+                <section id="add_set">
+                    <h2>Add Profile</h2>
+                    <div id="add_set_l">
+                        <div class="empty_Profile"><img id="addimg"></div>
+                        <input name="add_id" id= "id_text" type="text" placeholder="Name" autofocus required>
+                        <input name="add_password" id= "pw_text" type="password" placeholder="Password" required>
+
+                    </div>
+                    <div id="add_set_r">
+                        <ul id="proimg_list">
+                            <li><label><img src="images/img_Profile_1.png"><input type="radio" onclick='addchimg(this.value);' name="img_Profile" value="img_Profile_1" checked></label></li>
+                            <li><label><img src="images/img_Profile_2.png"><input type="radio" onclick='addchimg(this.value);' name="img_Profile" value="img_Profile_2"></label></li>
+                            <li><label><img src="images/img_Profile_3.png"><input type="radio" onclick='addchimg(this.value)' name="img_Profile" value="img_Profile_3"></label></li>
+                            <li><label><img src="images/img_Profile_4.png"><input type="radio" onclick='addchimg(this.value)' name="img_Profile" value="img_Profile_4"></label></li>
+                            <li><label><img src="images/img_Profile_5.png"><input type="radio" onclick='addchimg(this.value)' name="img_Profile" value="img_Profile_5"></label></li>
+                            <li><label><img src="images/img_Profile_6.png"><input type="radio" onclick='addchimg(this.value)' name="img_Profile" value="img_Profile_6"></label></li>
+                            <li><label><img src="images/img_Profile_7.png"><input type="radio" onclick='addchimg(this.value)' name="img_Profile" value="img_Profile_7"></label></li>
+                            <li><label><img src="images/img_Profile_8.png"><input type="radio" onclick='addchimg(this.value)' name="img_Profile" value="img_Profile_8"></label></li>
+                            <li><label><img src="images/img_Profile_9.png"><input type="radio" onclick='addchimg(this.value)' name="img_Profile" value="img_Profile_9"></label></li>
+                            <li><label><img src="images/img_Profile_10.png"><input type="radio" onclick='addchimg(this.value)'name="img_Profile" value="img_Profile_10"></label></li>
+                        </ul>
+                    </div>
+                </section> 
+                <section id="bottom">
+                    <a href="login.html" class="but_st">Back</a>
+                    <input type="submit" 
+                    onclick="fnSendToNR('sql',document.getElementById('id_text').value +'\n'+document.getElementById('pw_text').value)" 
+                    value="Create" class="but_st gray">
+                </section>
+            </form>
+        </main>
+    </div>
+    <script src="../uibuilder/vendor/socket.io/socket.io.js">
+    </script>
+    <script src="./uibuilderfe.js">
+    </script>
+    <script src="./js/addProfile.js">
+    </script>
+</body>
+</html>
