@@ -49,7 +49,9 @@ def sign_in():
 
     try:
         pw_check = checkPw(1, userId, userPw)  # True/False
+        print(pw_check)
         userData = getUser(userId)  # 유저 아이디에 따른 유저 정보
+        print(userData)
         if pw_check == True:
             return jsonify(
                 {
