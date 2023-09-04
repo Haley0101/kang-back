@@ -1,15 +1,36 @@
 from Modules.Module_Basic import *
-
+#from Module_Basic import *
 
 def get_SQL():
     try:
-        db = sqlite3.connect("./data/data.db")
+        db = pymysql.connect(
+            host='user.cw6wxd45nhbr.ap-northeast-2.rds.amazonaws.com', 
+            port=3306, 
+            user='root', 
+            passwd='00000000', 
+            db = 'user',
+            charset='utf8')
         SQL = db.cursor()
         return db, SQL
 
     except Exception as e:
         print(e)
         return False, False
+    
+def make_db():
+    try:
+        db, SQL = get_SQL()
+        SQL.execute('''
+        CREATE TABLE IF NOT EXISTS USER_DATA (
+            index_id INT AUTO_INCREMENT PRIMARY KEY,
+            userId VARCHAR(30) NOT NULL,
+            userPw VARCHAR(50) NOT NULL,
+            userName VARCHAR(20) NOT NULL,
+            userPhoneNumber VARCHAR(15),
+            userEmail VARCHAR(100)); ''')
+    except Exception as e:
+        print(e)
+        return False
 
 
 def checkPw(type, input_id, input_pw):
@@ -37,7 +58,7 @@ def getUser(userId):
         return False
 
 
-def getPw(input_id, input_pw):
+def getPw(input_id):
     db, SQL = get_SQL()
     if db == False:
         return False
@@ -78,3 +99,19 @@ def editUserInfo(userId, targetValue, editValue):
     except Exception as e:
         print(e)
         return False
+    
+def getuserID():
+    db, SQL = get_SQL()
+
+    SQL.execute("SELECT userId FROM USER_DATA")
+
+    userId = SQL.fetchall()
+
+    for i in userId:
+        print(i)
+
+db, SQL = get_SQL()
+
+SQL.execute("SELECT userId FROM USER_DATA")
+
+userId = SQL.fetchall()

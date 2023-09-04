@@ -23,7 +23,7 @@ def sign_up():
     try:
         hashpw = checkPw(0, userId, userPw)
         SQL.execute(
-            f"INSERT INTO USER_DATA(userId, userPw, userName, userPhoneNumber, userEmail, createTime) VALUES('{userId}', '{hashpw}', '{userName}', '{userPhoneNumber}', '{userEmail}', '{datetime.datetime.now()}')"
+            f"INSERT INTO USER_DATA(userId, userPw, userName, userPhoneNumber, userEmail) VALUES('{userId}', '{hashpw}', '{userName}', '{userPhoneNumber}', '{userEmail}')"
         )
         db.commit()
         return jsonify(
