@@ -22,25 +22,27 @@ def make_db():
         db, SQL = get_SQL()
         SQL.execute('''
         CREATE TABLE IF NOT EXISTS USER_DATA (
-            index_id INT AUTO_INCREMENT PRIMARY KEY,
-            userId VARCHAR(30) NOT NULL,
-            userPw VARCHAR(50) NOT NULL,
+            userId VARCHAR(30) primary key,
+            userPw VARCHAR(100) NOT NULL,
             userName VARCHAR(20) NOT NULL,
             userPhoneNumber VARCHAR(15),
             userEmail VARCHAR(100)); ''')
+        db.commit()
+        db.close()
     except Exception as e:
         print(e)
         return False
 
 
-def checkPw(type, input_id, input_pw):
-    if type == "hash" or type == 0:
-        password = (bcrypt.hashpw(input_pw.encode("UTF-8"), bcrypt.gensalt())).decode(
-            "utf-8"
-        )
-    elif type == "check" or type == 1:
+def checkPw(abcd, input_id, input_pw):
+    if abcd == "hash" or abcd == 0:
+        password = (bcrypt.hashpw(input_pw.encode("UTF-8"), bcrypt.gensalt())).decode("utf-8")
+    elif abcd == "check" or abcd == 1:
         _result = getPw(input_id)
+        print(_result)
         password = bcrypt.checkpw(input_pw.encode("UTF-8"), _result.encode("UTF-8"))
+        print(input_pw.encode("UTF-8"))
+        print(_result.encode("UTF-8"))
     return password
 
 
@@ -65,6 +67,7 @@ def getPw(input_id):
     try:
         SQL.execute(f"SELECT userPw FROM USER_DATA WHERE userId = '{input_id}'")
         result = SQL.fetchone()[0]
+        print("result :",result)
         return result
 
     except Exception as e:
@@ -99,19 +102,3 @@ def editUserInfo(userId, targetValue, editValue):
     except Exception as e:
         print(e)
         return False
-    
-def getuserID():
-    db, SQL = get_SQL()
-
-    SQL.execute("SELECT userId FROM USER_DATA")
-
-    userId = SQL.fetchall()
-
-    for i in userId:
-        print(i)
-
-db, SQL = get_SQL()
-
-SQL.execute("SELECT userId FROM USER_DATA")
-
-userId = SQL.fetchall()

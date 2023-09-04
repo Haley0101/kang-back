@@ -21,9 +21,9 @@ def sign_up():
         return jsonify({"result": "false", "message": "서버와의 연결이 불안정 합니다."})
 
     try:
-        hashpw = checkPw(0, userId, userPw)
+        hashpw = bcrypt.hashpw(userPw.encode('utf-8'), bcrypt.gensalt())
         SQL.execute(
-            f"INSERT INTO USER_DATA(userId, userPw, userName, userPhoneNumber, userEmail) VALUES('{userId}', '{hashpw}', '{userName}', '{userPhoneNumber}', '{userEmail}')"
+            f"INSERT INTO USER_DATA(userId, userPw, userName, userPhoneNumber, userEmail) VALUES('{userId}', '{hashpw.decode('utf-8')}', '{userName}', '{userPhoneNumber}', '{userEmail}')"
         )
         db.commit()
         return jsonify(
@@ -47,12 +47,10 @@ def sign_in():
     userId = params["userId"]
     userPw = params["userPw"]
 
-    try:
-        pw_check = checkPw(1, userId, userPw)  # True/False
-        print(pw_check)
+    try: 
         userData = getUser(userId)  # 유저 아이디에 따른 유저 정보
-        print(userData)
-        if pw_check == True:
+        user_password = str(userData[1]).encode("UTF-8") # 디비에 저장된 해시 비밀번호를 가져옴
+        if bcrypt.checkpw(userPw.encode("UTF-8"), user_password) == True:
             return jsonify(
                 {
                     "result": True,
