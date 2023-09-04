@@ -1,6 +1,9 @@
 from Modules.Module_Basic import *
+from flask_cors import CORS  # <-- import this
+
 
 app = Flask(__name__, template_folder="pages", static_folder="asset")
+CORS(app)
 
 
 def newWeb(app):
@@ -16,4 +19,4 @@ if __name__ == "__main__":
     newWeb(app)
     app.run(debug=True)
 
-# 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
+# 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  
