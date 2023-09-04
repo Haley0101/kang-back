@@ -16,7 +16,6 @@
             <div><img src="images/logo2.png" alt="onparticle"></div>
         </header>
         <main class="p_top115">
-            <form>
                 <section id="add_set">
                     <h2>Add Profile</h2>
                     <div id="add_set_l">
@@ -40,13 +39,15 @@
                         </ul>
                     </div>
                 </section> 
+                
+
                 <section id="bottom">
                     <a href="login.html" class="but_st">Back</a>
                     <input type="submit" 
-                    onclick="fnSendToNR('sql',document.getElementById('id_text').value +'\n'+document.getElementById('pw_text').value)" 
-                    value="Create" class="but_st gray">
+                    
+                    onclick="signUp([document.getElementById('id_text').value, document.getElementById('pw_text').value])" 
+                    value="Create" class="but_st">
                 </section>
-            </form>
         </main>
     </div>
     <script src="../uibuilder/vendor/socket.io/socket.io.js">

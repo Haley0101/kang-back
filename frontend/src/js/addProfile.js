@@ -64,3 +64,35 @@ function addchimg(imgname){
  
     document.getElementById('addimg').src = 'images/'+imgname+'.png'
 }
+
+
+function signUp(params) {
+    const url = 'http://localhost:5000/api/sign-up'; // 여기에 실제 엔드포인트 URL을 적어주세요.
+
+
+    console.log(params);
+ const userData = {
+     userId: params[0],
+     userPw: params[1],
+     userName: params[0],
+     userPhoneNumber: params[0],
+     userEmail: params[0]
+ };
+
+ fetch(url, {
+     method: 'POST',
+     headers: {
+         'Content-Type': 'application/json'
+     },
+     body: JSON.stringify(userData)
+ })
+ .then(response => response.json())
+ .then(data => {
+     alert("회원가입이 완료되었습니다!");
+     location.href = "/frontend/src/"
+ })
+ .catch(error => {
+     console.error('Error:', error);
+ });
+
+}
