@@ -46,3 +46,17 @@ def userEdit():
             "result": False,
             "message": "상상도 못한 에러 발생 후후"
         })
+
+@WebUserInfoAPI.route("/id_list", methods=['GET'])
+def getuserID():
+    db, SQL = get_SQL()
+
+    SQL.execute("SELECT userId FROM USER_DATA")
+
+    userId = SQL.fetchall()
+
+    binlist = []
+    for id in userId:
+        binlist.append(id)
+
+    return jsonify({"id_list" : binlist})
